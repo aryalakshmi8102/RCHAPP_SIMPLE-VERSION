@@ -1,0 +1,211 @@
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#"><img src=""></a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li class="active"><a routerLink="/home">Home</a></li>
+       
+        
+
+       </ul>
+      <ul class="nav navbar-nav navbar-right">
+          <li class="active"><a routerLink="/login">Signout</a></li>
+
+       
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+
+
+<div class="">
+ 
+
+
+
+  <section class="newsletter">
+    <div class="container">
+    <div class="row">
+    <div class="col-sm-12">
+      <div class="content">
+          <h2 style="color:#FFF;text-align: center">Child RCH ID List</h2><br>
+        <form   data-toggle="validator" role="form">
+            <!-- [formGroup]="rchForm" (ngSubmit)="onSubmit()" -->
+            <!--  -->
+            <!-- <h5 *ngIf="success">Your form is valid!</h5> -->
+            <div class="row"  *ngIf="showMsg">
+              <div class="col-xs-12">
+                <p class="alert alert-success">
+                    <strong>RCH ID  Saved  Successfully!</strong> 
+      
+                </p>
+              </div>
+            </div>
+
+           
+            <h5 style="color:#FFF;text-align: left">  Number of RCH IDs: {{allchildrchs.recordCount}} </h5>
+
+           
+
+
+      <div class="input-group">
+             <input type="number" class="form-control" name="rch" pattern=".{12,}" title="12 digits"  data-minlength="12" onKeyPress="if(this.value.length==12) return false;"  data-error="please enter valid RCH" required  placeholder="Enter 12 digit  RCH Id"   id="txtSearch" [(ngModel)]="task"/>  
+             
+             <div class="help-block with-errors"></div>
+             
+             <span class="input-group-btn">
+             <button class="btn" type="submit" (click)="onClick();onclickchildRCH();">Add to List</button>
+             </span>
+              </div>
+            </form>
+      </div>
+    </div>
+    </div>
+    </div>
+    </section>
+
+
+
+    <section class="newsletter">
+        <div class="container">
+        <div class="row">
+        <div class="col-sm-12">
+          <div class="content">
+             
+              <div class="panel panel-primary">
+                  <div class="panel-heading">
+                      <span class=" "></span>RCH ID List
+                      <div class="pull-right action-buttons">
+                          <div class="btn-group pull-right">
+                             
+                            
+                          </div>
+                      </div>
+                  </div>
+                  <!-- <div class="panel-body">
+                      <ul class="list-group">
+                          <li class="list-group-item" *ngFor="let task of tasks;let i = index">
+                          
+                                      {{ task.rchid }} 
+                              
+                          
+                          </li>
+                          
+                      </ul>
+                  </div> -->
+
+
+
+
+                  <div class="panel-body">
+                    <ul class="list-group" *ngIf="allchildrchs"  style="height:400px;overflow-y: scroll;">
+                       
+                        
+                        
+                        <li class="list-group-item" *ngFor="let allchildrchslist of allchildrchslist">
+                            <div class="checkbox">
+                                <!-- <input type="checkbox" id="checkbox5" /> -->
+                                <label for="checkbox5">
+                                    {{allchildrchslist.rchId}}
+                                </label>
+                            </div>
+                           <div class="pull-right action-buttons">
+                               
+                            <button class="trash"><span class="glyphicon glyphicon-remove"  (click)="onclickdeleteChild(allchildrchslist.rchId)"></span></button>
+                               
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                
+                 
+              </div>
+
+
+
+
+
+          </div>
+        </div>
+        </div>
+        </div>
+        </section>
+
+         <!-- <section class="newsletter">
+        <div class="container">
+        <div class="row">
+        <div class="col-xs-12 col-sm-12">
+          <div class="content">
+             
+              <button  class="btn btn-primary btn-block "  (click)="onclickchildRCH()" style="text-align:center">Send List to ICDS</button>
+
+
+
+
+          </div>
+        </div>
+        </div>
+        </div>
+        </section> -->
+        <!-- <section class="newsletter">
+            <div class="container">
+            <div class="row">
+            <div class="col-sm-12">
+              <div class="content">
+                 
+              <h5 style="color:#FFF">Last update to ICDS : {{allchildrchs.lastSyncDate}}</h5>
+    
+    
+    
+    
+              </div>
+            </div>
+            </div>
+            </div>
+            </section> -->
+
+
+
+    
+
+  
+  <!-- <div class="container">
+    <div class="col-sm-6">
+        <ul class="list-group">
+
+         
+            <li *ngFor="let task of tasks" class="update-text">
+                <div class="update-nag">
+                <span> {{ task.rchid }} </span>
+              </div>
+            </li>
+          
+        </ul>
+
+    </div>
+
+    <div class="col-md-6">
+        <button  class="btn submit"  (click)="onclickchildRCH()">submit</button>
+        
+      
+
+    </div>
+  </div> -->
+ 
+ 
+
+ 
+
+  
+
+</div>
+
